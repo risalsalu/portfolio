@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 body{
     margin: 0;
     overflow-x: hidden;
@@ -190,29 +193,19 @@ body{
 }
 .skillcontainer{
     background-color: yellowgreen;
+    color: black;
     width: 50%;
-    height: 300px;
+    height: 400px;
     position: absolute;
     left: 400px;
     top: 300px;
+    cursor: pointer;
 }
 .skill1{
-    background-color: red;
+    background-color: grey;
     width: 100%;
-    height: 100px;
-    color: black;
-}
-.skill2{
-    background-color: yellow;
-    width: 100%;
-    height: 30px;
-    color: black;
-}
-.skill3{
-    background-color: green;
-    width: 100%;
-    height: 30px;
-    color:black;
+    height: 150px;
+    color: white;
 }
 .project{
     background-color: black;
@@ -238,7 +231,7 @@ body{
 .contactme{
     background-color: black;
     width: 100%;
-    height: 750px;
+    height: 1000px;
 }
 .contacthead{
     background-color: black;
@@ -257,11 +250,180 @@ body{
     cursor: pointer;
 }
 .html{
-    background-color: white;
-    width: 20%;
+    background-color:white;
+    color: yellowgreen;
+    width: 100%;
     display: flex;
 }
 .html-logo img{
     width: 50px;
     height: 50px;
+    padding-top: 10px;
+}
+.skill h2{
+    padding-left: 800px;
+}
+.grey{
+    background-color: yellowgreen;
+    width: 80%;
+    height: 30px;
+}
+.skill2{
+    background-color: grey;
+    width: 100%;
+    height: 150px;
+    color: white;
+}
+.css{
+    background-color:white;
+    width: 100%;
+    display: flex;
+    color: yellowgreen;
+}
+.css-logo img{
+    width: 50px;
+    height: 50px;
+    padding-top: 10px;
+}
+.skill h2{
+    padding-left: 800px;
+}
+.red{
+    background-color: yellowgreen;
+    width: 80%;
+    height: 30px;
+}
+.skill3{
+    background-color: grey;
+    width: 100%;
+    height: 150px;
+    color: white;
+}
+.js{
+    background-color:white;
+    width: 100%;
+    display: flex;
+    color: yellowgreen;
+}
+.js-logo img{
+    width: 50px;
+    height: 50px;
+    padding-top: 10px;
+}
+.green{
+    background-color: yellowgreen;
+    width: 70%;
+    height: 30px;
+}
+.skill p{
+    padding-left: 700px;
+    font-size: 25px;
+}
+.project1 img{
+    height: 550px;
+    width: 60%;
+    padding-left: 350px;
+    padding-top: 10px;
+}
+.imgsec{
+    height: 600px;
+    width: 90%;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+.name{
+    background-color: black;
+    color: yellowgreen;
+    display: inline-block;
+    margin-left: 650px;
+    width: 30%;
+    margin-top: 50px;
+}
+.namebox{
+    background-color: yellowgreen;
+    height: 30px;
+    width: 100%;
+}
+.email{
+    background-color: black;
+    color: yellowgreen;
+    display: inline-block;
+    margin-left: 650px;
+    width: 30%;
+    margin-top: 10px;
+}
+.emailbox{
+    background-color: yellowgreen;
+    height: 30px;
+    width: 100%;
+}
+.message{
+    background-color: black;
+    color: yellowgreen;
+    display: inline-block;
+    margin-left: 650px;
+    width: 30%;
+    margin-top: 10px;
+}
+.messagebox{
+    background-color: yellowgreen;
+    height: 150px;
+    width: 100%;
+}
+.btnbox{
+    background-color: yellowgreen;
+    position: relative;
+    top: 60px;
+    right: 100px;
+    height: 50px;
+    width: 5%;
+}
+.social1{
+   display: flex;
+    gap: 100px;
+}
+.social1 i{
+    position: relative;
+    top: 200px;
+    left: 700px;
+    font-size: 40px;
+    background-color: transparent;
+    color:#59b2f4 ;
+}
+.social1 i:hover{
+    background-color: #59b2f4;
+    box-shadow: 0 0 10px #59b2f4;
+    color: white;
+}
+.js:hover {
+    background-color:yellowgreen;
+    color: white;
+    transition: 0.30s ease-in-out;
+}
+.green:hover{
+    background-color: white;
+    transition: 0.30s ease-in-out;
+}
+.css:hover{
+    background-color:yellowgreen;
+    color: white;
+    transition: 0.30s ease-in-out;
+}
+.red:hover{
+    background-color: white;
+    transition: 0.30s ease-in-out;
+}
+.html:hover{
+    background-color:yellowgreen;
+    color: white;
+    transition: 0.30s ease-in-out;
+}
+.grey:hover{
+    background-color: white;
+    transition: 0.30s ease-in-out;
+}
+.social1{
+    height: 200px;
+    width: 100%;
+    background-color: black;
 }

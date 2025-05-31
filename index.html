@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="portfolio.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+       <script src="portfolio.js">
+</script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "jfCtHaHcBlzLW1Z8R",
+      });
+   })();
+</script>
 </head>
 <body>
     <div class="nav">
@@ -21,20 +33,20 @@
             <h2> <a href="#Contact"></a> Contact</h2>
             </div>
     </div>
-    <div class="section1">
+    <div class="section1" id="Home">
         <h3>WEB DEVELOPER</h3>
         <h1>MUHAMMED</h1>
         <h1>RIZAL</h1>
         <img src="https://i.pinimg.com/736x/5e/6f/87/5e6f87f648d03017cc5d5a68f625b2fc.jpg">
         <div class="social">
-        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="#"><i class="fa-brands fa-github"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/login"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/accounts/login/?hl=en"><i class="fa-brands fa-instagram"></i></a>
 
       </div>
     </div>
-    <div class="about">
+    <div class="about" id="About">
         <div class="about-1">
         <h1> About</h1></div>
         <div class="inside">
@@ -50,35 +62,74 @@
     </div>
     <div class="skill">
         <div class="skillhead"><h1>Skills</h1></div>
-        <div class="skillpara"><p>I’m an aspiring Web Developer passionate about creating clean, responsive, and user-friendly websites. Here are some of the technologies I work with:</p></div>
         <div class="skillcontainer">
             <div class="skill1">
                 <div class="html">
             <div class="html-logo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp-_6xsw-5CJo5zcpjBF8rsgCwwLD5Gl1PEQ&s" alt=""></div>
-            <div class="html-text"><h2>HTML</h2></div>
+            <div class="html-text"><h1>HTML</h1></div>
             </div>
-            <h2>95%</h2>
+            <div class="grey">
+                <h2>80%</h2>
+                <div clas="grey1"></div>
             </div>
             
-            <div class="skill2"><h1>CSS</h1>
-            <div class="skill22"></div>
             </div>
-            <div class="skill3"><h1>JAVASCRIPT</h1>
-            <div class="skill32"></div>
+            <div class="skill2">
+                <div class="css">
+            <div class="css-logo"><img src="data:image/png;base64,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"></div>
+            <div class="css-text"><h1>CSS</h1></div>
             </div>
+            <div class="red">
+                <h2>80%</h2>
+                <div clas="red1"></div>
+            </div>
+            
+            </div>
+               <div class="skill3">
+                <div class="js">
+            <div class="js-logo"><img src="data:image/png;base64,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"></div>
+            <div class="js-text"><h1>JAVASCRIPT</h1></div>
+            </div>
+            <div class="green">
+             <div clas="green1">
+                <p><strong>70%</strong></p>
+                </div>
+            </div>
+            
+            </div>
+            
         </div>
     </div>
     <div class="project">
         <div class="projecthead"><h1>Projects</h1></div>
-        <div class="project1">
-
+            <div class="project1">
+            <img src="clone.png" alt="ease my trip">
         </div>
-
+        
     </div>
     <div class="contactme">
         <div class="contacthead"><h1>Contact Me</h1></div>
+    <div class="name">
+        <h1>NAME</h1>
+    <input type="text" class="namebox" name="name" required />
+        </div>
+    <div class="email">
+        <h1>EMAIL</h1>
+    <input type="email" class="emailbox" name="email" required />
+        </div>
+        <div class="message">
+            <h1>MESSAGE</h1>
+        <textarea class="messagebox" name="message" rows="5" required></textarea>
+        </div>   
+            <button type="submit" class="btnbox" onclick="sendMail()"><h1>Send</h1></button>
+                    
+            <div class="social1">
+        <a href="https://www.linkedin.com/login"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/accounts/login/?hl=en"><i class="fa-brands fa-instagram"></i></a>
+
+      </div>
     </div>
-    <script src="portfolio.js">
-</script>
 </body>
 </html>
