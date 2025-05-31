@@ -3,7 +3,7 @@ html {
 }
 body{
     margin: 0;
-    overflow-x: hidden;
+    overflow-x: visible;
 }
 .nav{
     background: linear-gradient(to right, black,grey);
