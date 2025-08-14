@@ -60,7 +60,7 @@ export default function Projects() {
           </h2>
           <div className="w-32 h-1.5 bg-gradient-to-r from-yellowgreen to-lime-400 mx-auto rounded-full shadow-lg shadow-lime-400/30"></div>
           <p className="text-gray-300 mt-8 text-xl max-w-3xl mx-auto leading-relaxed">
-            Where <span className="text-yellowgreen font-medium">innovation</span> meets <span className="text-lime-400 font-medium">execution</span> - explore my technical creations
+            Where <span className="text-yellowgreen font-medium">innovation</span> meets <span className="text-lime-400 font-medium">execution</span>
           </p>
         </div>
         
@@ -88,34 +88,37 @@ export default function Projects() {
                 </div>
                 
                 <div className="pl-16">
-                  <h3 className="text-2xl font-bold text-yellowgreen mb-4 group-hover:text-lime-300 transition-colors duration-300 flex items-center gap-3">
-                    <span className="w-3 h-3 rounded-full bg-yellowgreen group-hover:bg-lime-300 transition-colors duration-300"></span>
+                  {/* Project title with yellow-green accent */}
+                  <h3 className="text-2xl font-bold text-gray-100 mb-4 group-hover:text-yellowgreen transition-colors duration-300">
                     {project.title}
                   </h3>
+                  
+                  {/* Description with subtle off-white color */}
                   <p className="text-gray-300 mb-6 text-lg leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                     {project.description}
                   </p>
+                  
+                  {/* Tags with yellow-green variation */}
                   <div className="flex flex-wrap gap-3">
                     {project.tags.map((tag, i) => (
                       <span 
                         key={i} 
-                        className="px-3 py-1.5 bg-gray-800/80 text-yellowgreen text-xs font-mono font-bold rounded-full border border-yellowgreen/30 hover:bg-yellowgreen/10 hover:border-yellowgreen/50 hover:text-lime-300 transition-all duration-300 shadow-inner"
+                        className="px-3 py-1.5 bg-gray-800/80 text-gray-200 text-xs font-medium rounded-full border border-gray-700 hover:bg-yellowgreen/10 hover:border-yellowgreen/30 hover:text-yellowgreen transition-all duration-300"
                       >
-                        #{tag}
+                        {tag}
                       </span>
                     ))}
                   </div>
                 </div>
               </div>
               
-              {/* Project footer with animated button */}
               <div className="px-8 py-6 bg-gradient-to-r from-gray-900/70 to-gray-800/70 border-t border-gray-800 backdrop-blur-sm">
-                <button className="group/btn relative overflow-hidden px-6 py-3 bg-yellowgreen/10 text-yellowgreen font-bold rounded-lg border border-yellowgreen/30 hover:bg-yellowgreen/20 hover:border-yellowgreen/50 hover:text-lime-300 transition-all duration-500 flex items-center gap-2">
+                <button className="group/btn relative overflow-hidden px-6 py-3 bg-yellowgreen/10 text-gray-300 font-bold rounded-lg border border-yellowgreen/30 hover:bg-yellowgreen/20 hover:border-yellowgreen/50 hover:text-yellowgreen transition-all duration-500 flex items-center gap-2">
                   <span className="relative z-10 flex items-center gap-2">
                     <span className="group-hover/btn:translate-x-1 transition-transform duration-300">
-                      View Case Study
+                      View Details
                     </span>
-                    <span className="text-xl group-hover/btn:translate-x-2 group-hover/btn:text-lime-300 transition-all duration-300">
+                    <span className="text-xl group-hover/btn:translate-x-2 transition-all duration-300">
                       →
                     </span>
                   </span>
@@ -130,7 +133,7 @@ export default function Projects() {
           <button className="group relative overflow-hidden px-12 py-5 bg-gradient-to-r from-yellowgreen to-lime-500 text-black font-bold text-xl rounded-xl hover:from-lime-400 hover:to-green-400 transition-all duration-500 shadow-2xl shadow-yellowgreen/30 hover:shadow-lime-400/40 transform hover:-translate-y-1 hover:scale-105 border-2 border-yellowgreen/50 hover:border-lime-300/50">
             <span className="relative z-10 flex items-center gap-3">
               <span className="group-hover:animate-bounce">🚀</span>
-              Explore Full Portfolio
+              View All Projects
               <span className="group-hover:animate-spin">✨</span>
             </span>
             <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
