@@ -195,7 +195,7 @@ export default function Home() {
           51%, 100% { opacity: 0; }
         }
         .animate-blink {
-          animation: blink 1s infinite;
+          animation: blink 2s infinite;
         }
       `}</style>
     </section>
