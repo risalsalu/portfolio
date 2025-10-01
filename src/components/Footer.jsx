@@ -74,7 +74,7 @@ export default function Footer() {
                 <MapPin className="w-6 h-6 text-yellow-400 mr-2 animate-pulse" />
                 <h4 className="text-2xl font-semibold text-white">Based in</h4>
               </div>
-              <p className="text-gray-300 text-lg">San Francsco, CA</p>
+              <p className="text-gray-300 text-lg">San Francisco, CA</p>
               <div className="mt-4 p-4 bg-gray-900/50 backdrop-blur-sm border border-yellow-400/20 rounded-xl hover:border-yellow-400/40 transition-all duration-300">
                 <p className="text-sm text-gray-400">
                   Available for remote work worldwide
