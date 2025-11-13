@@ -77,7 +77,7 @@ export default function Footer() {
               <p className="text-gray-300 text-lg">San Francisco, CA</p>
               <div className="mt-4 p-4 bg-gray-900/50 backdrop-blur-sm border border-yellow-400/20 rounded-xl hover:border-yellow-400/40 transition-all duration-300">
                 <p className="text-sm text-gray-400">
-                  Available for remote work worldwide
+                  24×7 Available for remote work worldwide
                 </p>
               </div>
             </div>
