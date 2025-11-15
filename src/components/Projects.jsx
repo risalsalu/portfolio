@@ -133,7 +133,7 @@ export default function Projects() {
           <button className="group relative overflow-hidden px-12 py-5 bg-gradient-to-r from-yellowgreen to-lime-500 text-black font-bold text-xl rounded-xl hover:from-lime-400 hover:to-green-400 transition-all duration-500 shadow-2xl shadow-yellowgreen/30 hover:shadow-lime-400/40 transform hover:-translate-y-1 hover:scale-105 border-2 border-yellowgreen/50 hover:border-lime-300/50">
             <span className="relative z-10 flex items-center gap-3">
               <span className="group-hover:animate-bounce">🚀</span>
-              View All Projects
+              View All Project
               <span className="group-hover:animate-spin">✨</span>
             </span>
             <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
