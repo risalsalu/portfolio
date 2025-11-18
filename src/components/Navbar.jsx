@@ -97,7 +97,7 @@ export default function Navbar() {
                 href="#contact"
                 className="block w-full text-center px-4 py-2 rounded-md text-base font-medium text-black bg-lime-400 hover:bg-lime-300"
               >
-                Hire Me
+                Hire 
               </a>
             </li>
           </ul>
