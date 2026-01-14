@@ -159,7 +159,6 @@ const Experience = () => {
                     {/* End Marker */}
                     <div className="grid md:grid-cols-[180px_auto] gap-8 md:gap-12 relative pt-2">
                         <div className="hidden md:block col-start-1 text-right">
-                            <span className="text-[10px] font-mono text-gray-800 uppercase tracking-widest">Initial_Commit</span>
                         </div>
                     </div>
                 </div>
