@@ -1,54 +1,77 @@
 @import "tailwindcss";
 
 @theme {
-  --color-neon-blue: #00f3ff;
-  --color-neon-purple: #bc13fe;
-  --color-neon-cyan: #0ff;
+  --color-neon-blue: #9FE870;
+  --color-neon-purple: #7CFFB2;
+  --color-neon-cyan: #9FE870;
   --color-dark-bg: #0a0a0a;
   --color-glass: rgba(255, 255, 255, 0.05);
-  
+
   --font-display: "Orbitron", sans-serif;
   --font-body: "Inter", sans-serif;
   --font-mono: "Fira Code", monospace;
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-glow: glow 2s ease-in-out infinite alternate;
+  --animate-spin-slow: spin 12s linear infinite;
+  --animate-spin-reverse-slow: spin 15s linear infinite reverse;
 }
 
 @layer base {
   body {
     @apply bg-dark-bg text-white font-body antialiased overflow-x-hidden selection:bg-neon-blue selection:text-black;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display tracking-wider;
   }
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 @keyframes glow {
-  from { text-shadow: 0 0 10px var(--color-neon-blue), 0 0 20px var(--color-neon-blue); }
-  to { text-shadow: 0 0 20px var(--color-neon-purple), 0 0 30px var(--color-neon-purple); }
+  from {
+    text-shadow: 0 0 10px var(--color-neon-blue), 0 0 20px var(--color-neon-blue);
+  }
+
+  to {
+    text-shadow: 0 0 20px var(--color-neon-purple), 0 0 30px var(--color-neon-purple);
+  }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   @apply bg-dark-bg;
 }
+
 ::-webkit-scrollbar-thumb {
   @apply bg-gray-800 rounded-full hover:bg-neon-blue transition-colors;
 }
 
 /* Lenis Scroll */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 

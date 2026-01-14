@@ -3,11 +3,14 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import { useScroll } from '../../hooks/useScroll';
 
+import CursorFollower from '../ui/CursorFollower';
+
 const Layout = ({ children }) => {
     useScroll(); // Initialize Lenis
 
     return (
         <div className="bg-dark-bg min-h-screen text-white relative">
+            <CursorFollower />
             <Navbar />
             <main className="relative z-10">
                 {children}

@@ -5,6 +5,7 @@ import Button from '../ui/Button';
 import Badge from '../ui/Badge';
 import { Github, ExternalLink, Calendar, ShoppingCart, Server, Database, Globe } from 'lucide-react';
 import { cn } from '../../utils/cn';
+import OrbitalWrapper from '../ui/OrbitalWrapper';
 
 const ProjectCard = ({ project, index }) => {
     const cardRef = useRef(null);
@@ -81,14 +82,16 @@ const ProjectCard = ({ project, index }) => {
                     {/* Decorative Glow */}
                     <div className="absolute inset-0 bg-gradient-to-br from-neon-blue/10 to-neon-purple/10 rounded-xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                    <div className="relative rounded-xl overflow-hidden border border-white/10 bg-dark-bg aspect-video flex items-center justify-center group-hover:border-neon-blue/30 transition-colors">
-                        {project.imageIcon ? (
-                            <div className="flex flex-col items-center gap-4">
-                                <project.imageIcon className="text-gray-700 group-hover:text-neon-blue transition-colors duration-500" size={64} />
-                                <span className="font-display font-medium text-gray-500 group-hover:text-white transition-colors">{project.title}</span>
-                            </div>
-                        ) : null}
-                    </div>
+                    <OrbitalWrapper className="w-full h-full">
+                        <div className="relative rounded-xl overflow-hidden border border-white/10 bg-dark-bg aspect-video flex items-center justify-center group-hover:border-neon-blue/30 transition-colors">
+                            {project.imageIcon ? (
+                                <div className="flex flex-col items-center gap-4">
+                                    <project.imageIcon className="text-gray-700 group-hover:text-neon-blue transition-colors duration-500" size={64} />
+                                    <span className="font-display font-medium text-gray-500 group-hover:text-white transition-colors">{project.title}</span>
+                                </div>
+                            ) : null}
+                        </div>
+                    </OrbitalWrapper>
                 </div>
             </div>
         </div>

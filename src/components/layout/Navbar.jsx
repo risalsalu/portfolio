@@ -33,7 +33,7 @@ const Navbar = () => {
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
                 <Link to="/" className="text-2xl font-display font-bold text-white tracking-widest hover:text-neon-blue transition-colors">
-                    DEV<span className="text-neon-blue">.</span>PORTFOLIO
+                    RIZAL<span className="text-neon-blue">.</span>DEV
                 </Link>
 
                 {/* Desktop Menu */}
@@ -49,7 +49,10 @@ const Navbar = () => {
                         </a>
                     ))}
                     <a
-                        href="/resume.pdf"
+                        href="/Muhammed_Rizal_NP.pdf"
+                        download="Muhammed_Rizal_NP.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="px-5 py-2 text-sm font-bold text-black bg-neon-blue rounded hover:bg-white hover:shadow-[0_0_15px_rgba(0,243,255,0.5)] transition-all transform hover:-translate-y-0.5"
                     >
                         Resume
@@ -83,7 +86,10 @@ const Navbar = () => {
                     </a>
                 ))}
                 <a
-                    href="/resume.pdf"
+                    href="/Muhammed_Rizal_NP.pdf"
+                    download="Muhammed_Rizal_NP.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => setIsOpen(false)}
                     className="px-8 py-3 text-lg font-bold text-black bg-neon-blue rounded hover:bg-white transition-all shadow-[0_0_20px_rgba(0,243,255,0.3)]"
                 >

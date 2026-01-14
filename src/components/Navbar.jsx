@@ -1,70 +1,92 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Button from './ui/Button';
+import { Menu, X, FileText } from 'lucide-react';
+import { cn } from '../utils/cn';
 
 export default function Navbar() {
   const [activeLink, setActiveLink] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const links = ['home', 'about', 'skills', 'projects', 'contact'];
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'About', href: '#about' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'System Design', href: '#architecture' },
+    { name: 'Experience', href: '#work' },
+    { name: 'Contact', href: '#contact' },
+  ];
 
   return (
-    <nav className="bg-black/90 backdrop-blur-md fixed w-full z-50 border-b border-lime-400/20 shadow-lg shadow-lime-400/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex items-center opacity-100 translate-x-0 transition duration-500">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-lime-400 to-green-300 bg-clip-text text-transparent">
-              Web<span className="text-white">Dev</span>
-            </h1>
+    <nav className={cn(
+      "fixed w-full z-50 transition-all duration-300 border-b border-transparent",
+      scrolled || isMenuOpen ? "bg-dark-bg/90 backdrop-blur-md border-white/10 shadow-lg" : "bg-transparent"
+    )}>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
+
+          {/* Brand Identity */}
+          <div className="flex-shrink-0">
+            <a href="#" onClick={() => setActiveLink('home')} className="block group">
+              <h1 className="text-xl md:text-2xl font-display font-bold text-white tracking-wide group-hover:text-neon-blue transition-colors">
+                Muhammed Rizal N P
+              </h1>
+              <span className="text-xs font-mono text-gray-500 group-hover:text-white transition-colors">
+                Backend-Focused Full Stack
+              </span>
+            </a>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <ul className="flex space-x-8 items-center">
-              {links.map((item) => (
-                <li key={item} className="relative">
+          <div className="hidden lg:flex items-center space-x-8">
+            <ul className="flex space-x-6">
+              {navLinks.map((link) => (
+                <li key={link.name}>
                   <a
-                    href={`#${item}`}
-                    onClick={() => setActiveLink(item)}
-                    className={`px-3 py-2 text-sm font-medium transition-all duration-300 ${
-                      activeLink === item
-                        ? 'text-lime-400'
-                        : 'text-gray-300 hover:text-lime-400'
-                    }`}
+                    href={link.href}
+                    onClick={() => setActiveLink(link.name)}
+                    className={cn(
+                      "text-sm font-medium transition-colors hover:text-neon-blue font-mono",
+                      activeLink === link.name ? "text-neon-blue" : "text-gray-400"
+                    )}
                   >
-                    {item.charAt(0).toUpperCase() + item.slice(1)}
+                    {link.name}
                   </a>
-                  {activeLink === item && (
-                    <div className="absolute left-0 bottom-0 w-full h-0.5 bg-lime-400" />
-                  )}
                 </li>
               ))}
-              <li>
-                <a
-                  href="#contact"
-                  className="ml-4 px-4 py-2 text-sm font-medium rounded-md text-black bg-lime-400 hover:bg-lime-300 transition-all duration-300 shadow-lg shadow-lime-400/30 inline-block transform hover:scale-105 active:scale-95"
-                >
-                  Hire Me
-                </a>
-              </li>
             </ul>
+
+            {/* Resume CTA */}
+            <div className="pl-6 border-l border-white/10">
+              <a
+                href="/Muhammed_Rizal_NP.pdf"
+                download="Muhammed_Rizal_NP.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm font-bold text-white hover:text-neon-blue transition-colors"
+              >
+                <FileText size={16} />
+                Resume
+              </a>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-300 hover:text-lime-400 focus:outline-none"
+              className="text-gray-300 hover:text-neon-blue transition-colors"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
@@ -72,32 +94,35 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-black/95 border-t border-lime-400/10 overflow-hidden">
-          <ul className="px-4 py-4 space-y-2">
-            {links.map((item) => (
-              <li key={item}>
+        <div className="lg:hidden bg-dark-bg border-t border-white/10">
+          <ul className="px-6 py-4 space-y-4">
+            {navLinks.map((link) => (
+              <li key={link.name}>
                 <a
-                  href={`#${item}`}
+                  href={link.href}
                   onClick={() => {
-                    setActiveLink(item);
+                    setActiveLink(link.name);
                     setIsMenuOpen(false);
                   }}
-                  className={`block px-3 py-2 rounded-md text-base font-medium ${
-                    activeLink === item
-                      ? 'bg-lime-400/10 text-lime-400'
-                      : 'text-gray-300 hover:bg-lime-400/5 hover:text-lime-400'
-                  }`}
+                  className={cn(
+                    "block text-base font-medium transition-colors hover:text-neon-blue",
+                    activeLink === link.name ? "text-neon-blue" : "text-gray-400"
+                  )}
                 >
-                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                  {link.name}
                 </a>
               </li>
             ))}
-            <li>
+            <li className="pt-4 border-t border-white/10">
               <a
-                href="#contact"
-                className="block w-full text-center px-4 py-2 rounded-md text-base font-medium text-black bg-lime-400 hover:bg-lime-300"
+                href="/Muhammed_Rizal_NP.pdf"
+                download="Muhammed_Rizal_NP.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm font-bold text-neon-blue"
               >
-               For Hire
+                <FileText size={16} />
+                Download Resume
               </a>
             </li>
           </ul>
@@ -106,3 +131,4 @@ export default function Navbar() {
     </nav>
   );
 }
+
