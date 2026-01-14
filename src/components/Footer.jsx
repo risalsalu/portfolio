@@ -3,121 +3,84 @@ import { Github, Linkedin, Twitter, Mail, MapPin, Sparkles } from 'lucide-react'
 
 export default function Footer() {
   const socialLinks = [
-    { icon: <Github className="w-6 h-6" />, url: "https://github.com/risal", label: "GitHub" },
-    { icon: <Linkedin className="w-6 h-6" />, url: "https://linkedin.com/in/risal", label: "LinkedIn" },
-    { icon: <Twitter className="w-6 h-6" />, url: "https://twitter.com/risal", label: "Twitter" },
-    { icon: <Mail className="w-6 h-6" />, url: "mailto:risal@example.com", label: "Email" }
+    { icon: <Github className="w-5 h-5" />, url: "https://github.com/risalsalu", label: "GitHub" },
+    { icon: <Linkedin className="w-5 h-5" />, url: "https://linkedin.com/in/muhammed-rizal", label: "LinkedIn" },
+    { icon: <Mail className="w-5 h-5" />, url: "mailto:mdrizalnp@gmail.com", label: "Email" }
   ];
 
   return (
-    <footer id="contact" className="relative overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-10 left-10 w-20 h-20 bg-lime-400/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute top-32 right-20 w-32 h-32 bg-yellow-400/15 rounded-full blur-xl animate-bounce" style={{animationDuration: '3s'}}></div>
-        <div className="absolute bottom-20 left-1/3 w-24 h-24 bg-green-400/15 rounded-full blur-xl animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-32 right-10 w-16 h-16 bg-lime-300/25 rounded-full blur-xl animate-bounce" style={{animationDuration: '4s', animationDelay: '0.5s'}}></div>
+    <footer id="contact" className="relative overflow-hidden bg-black border-t border-white/5">
+      {/* Background Glows */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-50%] left-[-10%] w-[500px] h-[500px] bg-neon-blue/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-[-50%] right-[-10%] w-[500px] h-[500px] bg-neon-green/5 rounded-full blur-[100px]" />
       </div>
 
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+      <div className="relative z-10 py-16 px-6 container mx-auto">
+        {/* Main Content */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 items-start mb-16">
 
-      <div className="relative z-10 py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          {/* Main content */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center mb-16">
-            {/* Left section - CTA */}
-            <div className="text-center lg:text-left transform hover:scale-105 transition-transform duration-300">
-              <div className="flex items-center justify-center lg:justify-start mb-4">
-                <Sparkles className="w-8 h-8 text-lime-400 mr-3 animate-pulse" />
-                <h3 className="text-4xl font-bold bg-gradient-to-r from-lime-400 via-yellow-400 to-green-400 bg-clip-text text-transparent">
-                  Let's Connect
-                </h3>
+          {/* 1. CTA */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded border border-white/10 flex items-center justify-center bg-white/5 text-neon-green">
+                <Sparkles size={20} />
               </div>
-              <p className="text-gray-300 mb-6 text-lg leading-relaxed">
-                Have a project in mind or want to collaborate? Let's create something amazing together.
-              </p>
-              <a 
-                href="mailto:risal@example.com" 
-                className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-lime-500 to-green-600 hover:from-lime-400 hover:to-green-500 text-black font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-lime-500/25"
-              >
-                <Mail className="w-5 h-5 mr-2 group-hover:animate-bounce" />
-                Get In Touch
-              </a>
+              <h3 className="text-2xl font-display font-bold text-white">Let's Connect</h3>
             </div>
-            
-            {/* Center section - Social links */}
-            <div className="flex justify-center">
-              <div className="grid grid-cols-2 gap-6">
-                {socialLinks.map((link, index) => (
-                  <a 
-                    key={index} 
-                    href={link.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="group relative p-6 bg-gray-900/50 backdrop-blur-sm border border-lime-400/20 rounded-2xl hover:bg-gray-800/70 hover:border-lime-400/40 transition-all duration-300 transform hover:scale-110 hover:rotate-3"
-                    title={link.label}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-lime-400/10 to-green-400/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <div className="relative text-gray-300 group-hover:text-lime-400 transition-colors duration-300">
-                      {link.icon}
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-4 h-4 bg-gradient-to-r from-lime-400 to-green-400 rounded-full opacity-0 group-hover:opacity-100 animate-pulse"></div>
-                  </a>
-                ))}
-              </div>
-            </div>
-            
-            {/* Right section - Location */}
-            <div className="text-center lg:text-right transform hover:scale-105 transition-transform duration-300">
-              <div className="flex items-center justify-center lg:justify-end mb-4">
-                <MapPin className="w-6 h-6 text-yellow-400 mr-2 animate-pulse" />
-                <h4 className="text-2xl font-semibold text-white">Based in</h4>
-              </div>
-              <p className="text-gray-300 text-lg">San Francisco, CA</p>
-              <div className="mt-4 p-4 bg-gray-900/50 backdrop-blur-sm border border-yellow-400/20 rounded-xl hover:border-yellow-400/40 transition-all duration-300">
-                <p className="text-sm text-gray-400">
-                  24×7 Available for remote work worldwide
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Divider */}
-          <div className="relative mb-12">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gradient-to-r from-transparent via-lime-400/20 to-transparent"></div>
-            </div>
-            <div className="relative flex justify-center">
-              <div className="bg-gradient-to-r from-black to-gray-900 px-6">
-                <div className="w-12 h-px bg-gradient-to-r from-lime-400 to-green-400"></div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Bottom section */}
-          <div className="text-center space-y-4">
-            <p className="text-gray-400 text-lg">
-              &copy; {new Date().getFullYear()} <span className="font-semibold text-white">Risal</span>. All rights reserved.
+            <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
+              Backend-focused developer ready to architect scalable solutions. Open for collaborations and distributed system projects.
             </p>
-            <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
-              <span>Built with</span>
-              <span className="text-lime-400 animate-pulse">♥</span>
-              <span>using React and Tailwind CSS</span>
+            <a
+              href="mailto:mdrizalnp@gmail.com"
+              className="inline-flex items-center gap-3 px-6 py-3 bg-neon-green/10 border border-neon-green/50 text-neon-green text-sm font-bold rounded hover:bg-neon-green hover:text-black transition-all duration-300"
+            >
+              <Mail size={16} />
+              <span>Start Conversation</span>
+            </a>
+          </div>
+
+          {/* 2. Socials */}
+          <div className="flex flex-col md:items-center">
+            <h4 className="text-sm font-mono text-gray-500 uppercase tracking-widest mb-6 border-b border-white/10 pb-2 inline-block">Social_Nodes</h4>
+            <div className="flex gap-4">
+              {socialLinks.map((link, i) => (
+                <a
+                  key={i}
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="w-12 h-12 rounded border border-white/10 bg-white/5 flex items-center justify-center text-gray-400 hover:text-neon-blue hover:border-neon-blue/50 hover:shadow-[0_0_15px_rgba(0,243,255,0.2)] transition-all duration-300"
+                >
+                  {link.icon}
+                </a>
+              ))}
             </div>
-            <div className="flex items-center justify-center space-x-4 text-xs text-gray-600">
-              <a href="#" className="hover:text-lime-400 transition-colors duration-300">Privacy Policy</a>
-              <span className="text-gray-700">•</span>
-              <a href="#" className="hover:text-lime-400 transition-colors duration-300">Terms of Service</a>
-              <span className="text-gray-700">•</span>
-              <a href="#" className="hover:text-lime-400 transition-colors duration-300">Sitemap</a>
+          </div>
+
+          {/* 3. Location */}
+          <div className="md:text-right space-y-4">
+            <div className="inline-flex items-center gap-2 text-neon-purple/80 bg-neon-purple/5 px-3 py-1 rounded-full border border-neon-purple/10 text-xs font-mono">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-purple opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-neon-purple"></span>
+              </span>
+              Available for Remote
             </div>
+            <h4 className="text-xl font-bold text-white">Based in Calicut, India</h4>
+            <p className="text-gray-500 text-sm">Open to global opportunities.</p>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-gray-600">
+          <p>&copy; {new Date().getFullYear()} Rizal.dev // All Systems Normal</p>
+          <div className="flex gap-6">
+            <span className="hover:text-neon-blue cursor-pointer transition-colors">PRIVACY_PROTOCOL</span>
+            <span className="hover:text-neon-blue cursor-pointer transition-colors">TERM_LOGS</span>
           </div>
         </div>
       </div>
-
-      {/* Bottom gradient glow */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lime-400/50 to-transparent"></div>
     </footer>
   );
 }

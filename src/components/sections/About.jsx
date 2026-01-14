@@ -3,7 +3,7 @@ import { motion, useTransform } from 'framer-motion';
 import Section from '../ui/Section';
 import TextReveal from '../ui/TextReveal';
 import Card from '../ui/Card';
-import OrbitalWrapper from '../ui/OrbitalWrapper';
+import SystemGraph from '../ui/SystemGraph';
 import { useCursorEngine } from '../../hooks/useCursorEngine';
 import { User, Server, Database, Code, Shield, Cpu } from 'lucide-react';
 
@@ -78,32 +78,7 @@ const About = () => {
 
                 {/* Visual Node */}
                 <div className="flex justify-center md:justify-end relative">
-                    <OrbitalWrapper className="relative w-full max-w-sm aspect-square md:w-[400px] md:h-[400px]">
-                        {/* Abstract System Visual */}
-                        <div className="absolute inset-0 bg-dark-bg border border-white/10 rounded-3xl overflow-hidden shadow-2xl flex items-center justify-center group-hover:border-neon-blue/30 transition-all duration-500">
-                            {/* Background Grid */}
-                            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
-
-                            {/* Floating Nodes */}
-                            <div className="grid grid-cols-2 gap-4 relative z-10 w-3/4 h-3/4">
-                                <div className="bg-gradient-to-br from-white/5 to-transparent border border-white/10 rounded-xl flex items-center justify-center backdrop-blur-md">
-                                    <span className="font-mono text-neon-blue font-bold">API</span>
-                                </div>
-                                <div className="bg-gradient-to-bl from-white/5 to-transparent border border-white/10 rounded-xl flex items-center justify-center backdrop-blur-md">
-                                    <span className="font-mono text-neon-purple font-bold">DB</span>
-                                </div>
-                                <div className="bg-gradient-to-tr from-white/5 to-transparent border border-white/10 rounded-xl flex items-center justify-center backdrop-blur-md">
-                                    <span className="font-mono text-white/50 font-bold">Auth</span>
-                                </div>
-                                <div className="bg-gradient-to-tl from-white/5 to-transparent border border-white/10 rounded-xl flex items-center justify-center backdrop-blur-md">
-                                    <span className="font-mono text-neon-blue/50 font-bold">Log</span>
-                                </div>
-                            </div>
-
-                            {/* Center Pulse */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-neon-blue/10 rounded-full blur-xl animate-pulse"></div>
-                        </div>
-                    </OrbitalWrapper>
+                    <SystemGraph className="w-full max-w-sm aspect-square md:w-[400px] md:h-[400px]" />
                 </div>
 
             </div>
