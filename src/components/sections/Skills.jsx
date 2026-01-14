@@ -253,7 +253,6 @@ const Skills = () => {
                                 Technical <span className="text-gray-500">Stack</span>
                             </h3>
                         </div>
-                        <span className="hidden md:block text-xs font-mono text-gray-600 mb-1">// ENGINEERING_DASHBOARD_MODE</span>
                     </div>
                 </TextReveal>
 

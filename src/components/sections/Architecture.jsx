@@ -243,16 +243,11 @@ const Architecture = () => {
 
                         {/* K8s Label Wrapper (Visual Only) */}
                         <div className="absolute right-0 top-0 bottom-0 w-[45%] border-l-2 border-dashed border-white/5 pointer-events-none flex items-end justify-end p-4">
-                            <span className="text-[10px] font-mono text-gray-700 uppercase tracking-widest bg-dark-bg px-2">
-                                Kubernetes_Cluster_V1.28
-                            </span>
                         </div>
 
                     </div>
                 </div>
             </div>
-
-
         </Section>
     );
 };

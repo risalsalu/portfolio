@@ -148,9 +148,6 @@ const Projects = () => {
                             Selected Works
                         </h3>
                     </div>
-                    <span className="hidden md:block text-[10px] font-mono text-gray-800 text-right">
-                        // HOVER_TO_SCAN
-                    </span>
                 </div>
 
                 {/* Projects List Container */}
