@@ -6,6 +6,7 @@ import Section from '../ui/Section';
 import Button from '../ui/Button';
 import TextReveal from '../ui/TextReveal';
 import { Github, Linkedin, ArrowRight, Mail } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import OrbitalWrapper from '../ui/OrbitalWrapper';
 
 const ParticleField = (props) => {
@@ -22,7 +23,7 @@ const ParticleField = (props) => {
             <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
                 <PointMaterial
                     transparent
-                    color="#00f3ff"
+                    color="#CCFF00"
                     size={0.002}
                     sizeAttenuation={true}
                     depthWrite={false}
@@ -62,13 +63,13 @@ const Hero = () => {
                         </TextReveal>
 
                         <TextReveal delay={0.4}>
-                            <h2 className="text-xl md:text-2xl font-display text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-neon-purple mb-6 animate-pulse">
+                            <h2 className="text-xl md:text-2xl font-display text-transparent bg-clip-text bg-gradient-to-r from-neon-green to-white mb-6 animate-pulse">
                                 Backend-Focused Full Stack Developer
                             </h2>
                         </TextReveal>
 
                         <TextReveal delay={0.5}>
-                            <div className="flex flex-wrap justify-center md:justify-start gap-3 items-center text-sm md:text-base font-mono text-neon-blue mb-8">
+                            <div className="flex flex-wrap justify-center md:justify-start gap-3 items-center text-sm md:text-base font-mono text-neon-green mb-8">
                                 <span>ASP.NET Core</span>
                                 <span className="text-gray-600">•</span>
                                 <span>Clean Architecture</span>
@@ -106,13 +107,16 @@ const Hero = () => {
                                 </Button>
 
                                 <div className="flex items-center gap-6 mt-4 md:mt-0">
-                                    <a href="https://github.com/risalsalu" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:text-neon-blue transition-colors">
+                                    <a href="https://wa.me/917736361739" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:text-neon-green transition-colors">
+                                        <FaWhatsapp size={24} />
+                                    </a>
+                                    <a href="https://github.com/risalsalu" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:text-neon-green transition-colors">
                                         <Github size={24} />
                                     </a>
-                                    <a href="https://linkedin.com/in/muhammed-rizal/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:text-neon-blue transition-colors">
+                                    <a href="https://www.linkedin.com/in/muhammed-rizal/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:text-neon-green transition-colors">
                                         <Linkedin size={24} />
                                     </a>
-                                    <a href="mailto:mdrizalnp@gmail.com" className="text-gray-400 hover:text-white hover:text-neon-blue transition-colors">
+                                    <a href="mailto:mdrizalnp@gmail.com" className="text-gray-400 hover:text-white hover:text-neon-green transition-colors">
                                         <Mail size={24} />
                                     </a>
                                 </div>
@@ -123,11 +127,11 @@ const Hero = () => {
                         <TextReveal delay={1.0}>
                             <div className="border-t border-white/10 pt-6">
                                 <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-6 gap-y-3 text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider">
-                                    <span className="flex items-center gap-2 hover:text-neon-blue transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-neon-blue/50"></span>Clean Architecture</span>
-                                    <span className="flex items-center gap-2 hover:text-neon-blue transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-neon-blue/50"></span>JWT Auth</span>
-                                    <span className="flex items-center gap-2 hover:text-neon-blue transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-neon-blue/50"></span>Docker</span>
-                                    <span className="flex items-center gap-2 hover:text-neon-blue transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-neon-blue/50"></span>.NET 8</span>
-                                    <span className="flex items-center gap-2 hover:text-neon-blue transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-neon-blue/50"></span>SQL Performance</span>
+                                    <span className="flex items-center gap-2 hover:text-neon-green transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-neon-green/50"></span>Clean Architecture</span>
+                                    <span className="flex items-center gap-2 hover:text-neon-green transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-neon-green/50"></span>JWT Auth</span>
+                                    <span className="flex items-center gap-2 hover:text-neon-green transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-neon-green/50"></span>Docker</span>
+                                    <span className="flex items-center gap-2 hover:text-neon-green transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-neon-green/50"></span>.NET 8</span>
+                                    <span className="flex items-center gap-2 hover:text-neon-green transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-neon-green/50"></span>SQL Performance</span>
                                 </div>
                             </div>
                         </TextReveal>
@@ -141,13 +145,13 @@ const Hero = () => {
                             aria-label="Profile Image Interaction"
                         >
                             {/* Animated Glow Background - Layer 1 (Depth) */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-neon-blue/20 via-neon-purple/20 to-neon-blue/20 rounded-[2rem] blur-2xl opacity-40 group-hover:opacity-70 group-hover:blur-3xl group-focus:opacity-70 group-focus:blur-3xl transition-all duration-700 ease-out"></div>
+                            <div className="absolute inset-0 bg-gradient-to-br from-neon-green/20 via-neon-green/10 to-neon-green/20 rounded-[2rem] blur-2xl opacity-40 group-hover:opacity-70 group-hover:blur-3xl group-focus:opacity-70 group-focus:blur-3xl transition-all duration-700 ease-out"></div>
 
                             {/* Animated Glow Background - Layer 2 (Intensity) */}
-                            <div className="absolute -inset-0.5 bg-gradient-to-tr from-neon-blue to-transparent rounded-[2rem] blur-lg opacity-0 group-hover:opacity-40 group-focus:opacity-40 transition-all duration-500"></div>
+                            <div className="absolute -inset-0.5 bg-gradient-to-tr from-neon-green to-transparent rounded-[2rem] blur-lg opacity-0 group-hover:opacity-40 group-focus:opacity-40 transition-all duration-500"></div>
 
                             {/* Main Image Container */}
-                            <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 group-hover:border-neon-blue/50 group-focus:border-neon-blue/50 transition-all duration-500 ease-out group-hover:scale-[1.03] group-hover:-translate-y-2 group-focus:scale-[1.03] group-focus:-translate-y-2 shadow-2xl group-hover:shadow-[0_20px_40px_-15px_rgba(0,243,255,0.3)] bg-dark-bg z-10">
+                            <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 group-hover:border-neon-green/50 group-focus:border-neon-green/50 transition-all duration-500 ease-out group-hover:scale-[1.03] group-hover:-translate-y-2 group-focus:scale-[1.03] group-focus:-translate-y-2 shadow-2xl group-hover:shadow-[0_20px_40px_-15px_rgba(74,222,128,0.3)] bg-dark-bg z-10">
                                 <img
                                     src="/profile.png"
                                     alt="Muhammed Rizal N P - Software Developer"
@@ -160,8 +164,8 @@ const Hero = () => {
 
                             {/* Decorative Tech Badge */}
                             <div className="absolute -top-4 -right-4 md:-top-6 md:-right-6 z-20 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 group-focus:scale-110 group-focus:rotate-12">
-                                <div className="flex items-center justify-center w-10 h-10 md:w-14 md:h-14 bg-dark-bg border border-neon-blue/30 rounded-xl shadow-lg shadow-neon-blue/10 group-hover:border-neon-blue group-hover:shadow-neon-blue/30 transition-all duration-300">
-                                    <span className="text-neon-blue text-xs md:text-sm font-mono font-bold">&lt;/&gt;</span>
+                                <div className="flex items-center justify-center w-10 h-10 md:w-14 md:h-14 bg-dark-bg border border-neon-green/30 rounded-xl shadow-lg shadow-neon-green/10 group-hover:border-neon-green group-hover:shadow-neon-green/30 transition-all duration-300">
+                                    <span className="text-neon-green text-xs md:text-sm font-mono font-bold">&lt;/&gt;</span>
                                 </div>
                             </div>
                         </OrbitalWrapper>
@@ -173,7 +177,7 @@ const Hero = () => {
             {/* Scroll indicator */}
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 animate-bounce">
                 <span className="text-xs font-mono text-gray-500">SCROLL</span>
-                <div className="w-[1px] h-10 bg-gradient-to-b from-neon-blue to-transparent"></div>
+                <div className="w-[1px] h-10 bg-gradient-to-b from-neon-green to-transparent"></div>
             </div>
         </Section >
     );

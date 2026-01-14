@@ -23,11 +23,11 @@ const SystemGraph = ({ className }) => {
 
     // Nodes Definition
     const nodes = [
-        { id: 'gateway', label: 'API Gateway', icon: Globe, x: '50%', y: '20%', color: 'text-neon-blue' },
-        { id: 'auth', label: 'Auth Service', icon: Shield, x: '20%', y: '40%', color: 'text-neon-purple' },
+        { id: 'gateway', label: 'API Gateway', icon: Globe, x: '50%', y: '20%', color: 'text-neon-green' },
+        { id: 'auth', label: 'Auth Service', icon: Shield, x: '20%', y: '40%', color: 'text-neon-green' },
         { id: 'core', label: 'Core API', icon: Cpu, x: '50%', y: '50%', color: 'text-white' },
         { id: 'cache', label: 'Redis Cache', icon: Layers, x: '80%', y: '40%', color: 'text-gray-400' },
-        { id: 'db', label: 'Database', icon: Database, x: '50%', y: '80%', color: 'text-neon-blue' },
+        { id: 'db', label: 'Database', icon: Database, x: '50%', y: '80%', color: 'text-neon-green' },
     ];
 
     // Connections (From -> To)
@@ -90,7 +90,7 @@ const SystemGraph = ({ className }) => {
                         transition={{ duration: 0.5, delay: i * 0.1 }}
                         whileHover={{ scale: 1.1 }}
                     >
-                        <div className={cn("w-12 h-12 rounded-xl border border-white/10 bg-dark-bg/80 flex items-center justify-center shadow-lg backdrop-blur-md transition-colors duration-300 hover:border-neon-blue/50", node.color)}>
+                        <div className={cn("w-12 h-12 rounded-xl border border-white/10 bg-dark-bg/80 flex items-center justify-center shadow-lg backdrop-blur-md transition-colors duration-300 hover:border-neon-green/50", node.color)}>
                             <node.icon size={20} />
                         </div>
                         <span className="mt-2 text-[10px] font-mono text-gray-500 bg-black/50 px-1.5 py-0.5 rounded border border-white/5 uppercase tracking-wider backdrop-blur-md">
@@ -101,7 +101,7 @@ const SystemGraph = ({ className }) => {
 
                 {/* Active Data Packet Animation (Simulated Traffic) */}
                 <motion.div
-                    className="absolute w-1.5 h-1.5 bg-neon-blue rounded-full shadow-[0_0_5px_var(--color-neon-blue)] z-20"
+                    className="absolute w-1.5 h-1.5 bg-neon-green rounded-full shadow-[0_0_5px_var(--color-neon-green)] z-20"
                     animate={{
                         left: ['50%', '50%', '50%', '80%'], // Gateway -> Core -> Cache
                         top: ['20%', '50%', '50%', '40%'],
@@ -110,7 +110,7 @@ const SystemGraph = ({ className }) => {
                     transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1 }}
                 />
                 <motion.div
-                    className="absolute w-1.5 h-1.5 bg-neon-purple rounded-full shadow-[0_0_5px_var(--color-neon-purple)] z-20"
+                    className="absolute w-1.5 h-1.5 bg-neon-green rounded-full shadow-[0_0_5px_var(--color-neon-green)] z-20"
                     animate={{
                         left: ['50%', '20%', '50%'], // Gateway -> Auth -> DB
                         top: ['20%', '40%', '80%'],
@@ -120,7 +120,7 @@ const SystemGraph = ({ className }) => {
                 />
 
                 {/* Cursor Proximity Glow (Inner) */}
-                <div className="absolute inset-0 bg-gradient-to-br from-neon-blue/5 via-transparent to-neon-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-neon-green/5 via-transparent to-neon-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
             </motion.div>
         </div>
     );

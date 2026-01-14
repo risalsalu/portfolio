@@ -37,9 +37,8 @@ const About = () => {
                 {/* Text Content */}
                 <div className="relative z-10">
                     <TextReveal>
-                        <h2 className="text-neon-blue font-mono text-sm tracking-widest mb-2">01. SYSTEM ARCHITECT</h2>
                         <h3 className="text-3xl md:text-4xl font-display font-bold mb-8 leading-tight">
-                            Building <span className="text-neon-purple">Scalable Systems</span> <br />
+                            Building <span className="text-neon-green">Scalable Systems</span> <br />
                             Not Just Websites.
                         </h3>
                     </TextReveal>
@@ -47,14 +46,14 @@ const About = () => {
                     <TextReveal delay={0.2}>
                         <div className="space-y-6 text-gray-400 leading-relaxed font-light text-lg">
                             <p>
-                                I am a <strong>Backend-Focused Engineer</strong> transitioning from monolithic applications to <MagneticTag className="text-neon-blue font-medium inline-block relative cursor-none">Distributed Microservices</MagneticTag>. My expertise lies in designing high-performance APIs with <strong>ASP.NET Core</strong> and ensuring system resilience.
+                                I am a <strong>Backend-Focused Engineer</strong> transitioning from monolithic applications to <MagneticTag className="text-neon-green font-medium inline-block relative cursor-none">Distributed Microservices</MagneticTag>. My expertise lies in designing high-performance APIs with <strong>ASP.NET Core</strong> and ensuring system resilience.
                             </p>
 
                             <p>
-                                I prioritize <strong>System Design</strong> over temporary fixes. By strictly adhering to <MagneticTag className="text-neon-purple font-medium inline-block relative cursor-none">Clean Architecture</MagneticTag> and Domain-Driven Design (DDD), I build software that remains maintainable as it scales.
+                                I prioritize <strong>System Design</strong> over temporary fixes. By strictly adhering to <MagneticTag className="text-neon-green font-medium inline-block relative cursor-none">Clean Architecture</MagneticTag> and Domain-Driven Design (DDD), I build software that remains maintainable as it scales.
                             </p>
 
-                            <p className="text-sm border-l-2 border-neon-blue/30 pl-4 italic">
+                            <p className="text-sm border-l-2 border-neon-green/30 pl-4 italic">
                                 "The goal isn't just to write code that works, but to architect systems that endure."
                             </p>
                         </div>
@@ -63,9 +62,9 @@ const About = () => {
                     {/* Stats Grid */}
                     <div className="grid grid-cols-2 gap-4 mt-10">
                         {stats.map((stat, index) => (
-                            <Card key={index} className="p-4 flex items-center gap-4 hover:border-neon-blue/40 transition-colors group">
-                                <div className="p-2 rounded-lg bg-white/5 group-hover:bg-neon-blue/10 transition-colors">
-                                    <stat.icon className="text-neon-blue" size={20} />
+                            <Card key={index} className="p-4 flex items-center gap-4 hover:border-neon-green/40 transition-colors group">
+                                <div className="p-2 rounded-lg bg-white/5 group-hover:bg-neon-green/10 transition-colors">
+                                    <stat.icon className="text-neon-green" size={20} />
                                 </div>
                                 <div className="flex flex-col">
                                     <span className="font-display font-bold text-white text-lg">{stat.value}</span>

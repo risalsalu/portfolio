@@ -32,8 +32,8 @@ const Navbar = () => {
             )}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
-                <Link to="/" className="text-2xl font-display font-bold text-white tracking-widest hover:text-neon-blue transition-colors">
-                    RIZAL<span className="text-neon-blue">.</span>DEV
+                <Link to="/" className="text-2xl font-display font-bold text-white tracking-widest hover:text-neon-green transition-colors">
+                    RIZAL<span className="text-neon-green">.</span>DEV
                 </Link>
 
                 {/* Desktop Menu */}
@@ -45,7 +45,7 @@ const Navbar = () => {
                             className="text-sm font-medium text-gray-300 hover:text-white hover:text-shadow-neon transition-all relative group"
                         >
                             {link.name}
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-neon-blue transition-all group-hover:w-full" />
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-neon-green transition-all group-hover:w-full" />
                         </a>
                     ))}
                     <a
@@ -53,7 +53,7 @@ const Navbar = () => {
                         download="Muhammed_Rizal_NP.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-5 py-2 text-sm font-bold text-black bg-neon-blue rounded hover:bg-white hover:shadow-[0_0_15px_rgba(0,243,255,0.5)] transition-all transform hover:-translate-y-0.5"
+                        className="px-5 py-2 text-sm font-bold text-black bg-neon-green rounded hover:bg-white hover:shadow-[0_0_15px_rgba(204,255,0,0.5)] transition-all transform hover:-translate-y-0.5"
                     >
                         Resume
                     </a>
@@ -61,7 +61,7 @@ const Navbar = () => {
 
                 {/* Mobile Toggle */}
                 <button
-                    className="md:hidden text-white hover:text-neon-blue transition-colors"
+                    className="md:hidden text-white hover:text-neon-green transition-colors"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -91,7 +91,7 @@ const Navbar = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setIsOpen(false)}
-                    className="px-8 py-3 text-lg font-bold text-black bg-neon-blue rounded hover:bg-white transition-all shadow-[0_0_20px_rgba(0,243,255,0.3)]"
+                    className="px-8 py-3 text-lg font-bold text-black bg-neon-green rounded hover:bg-white transition-all shadow-[0_0_20px_rgba(204,255,0,0.3)]"
                 >
                     Download Resume
                 </a>

@@ -43,7 +43,7 @@ const ExperienceItem = ({ job, index, activeId, setActive }) => {
                 </div>
 
                 {/* 3. Node Connector */}
-                <div className="absolute left-[-5px] md:left-[199px] top-2.5 w-2 h-2 rounded-full bg-dark-bg border border-gray-700 z-20 transition-all duration-300 group-hover:border-neon-green group-hover:bg-neon-green group-hover:shadow-[0_0_8px_rgba(16,185,129,0.4)] md:translate-x-[4px]" />
+                <div className="absolute left-[-5px] md:left-[199px] top-2.5 w-2 h-2 rounded-full bg-dark-bg border border-gray-700 z-20 transition-all duration-300 group-hover:border-neon-green group-hover:bg-neon-green group-hover:shadow-[0_0_8px_rgba(204,255,0,0.4)] md:translate-x-[4px]" />
 
                 {/* 4. Content Content */}
                 <div className="relative group-hover:translate-x-1 transition-transform duration-300">
@@ -106,7 +106,7 @@ const Experience = () => {
             company: 'Bridgeon Solutions LLP',
             period: 'MAY 2025 – PRESENT',
             current: true,
-            location: 'Remote / Hybrid',
+            location: 'Onsite',
             description: 'Initializing full-stack development protocols. Executing core feature implementation for scalable web applications using React-Redux and ASP.NET pipelines.',
             responsibilities: [
                 'Architected responsive frontend modules using React 19 & Redux Toolkit.',
@@ -129,7 +129,6 @@ const Experience = () => {
                 {/* Header */}
                 <div className="mb-24 flex items-end justify-between border-b border-white/5 pb-6">
                     <TextReveal>
-                        <h2 className="text-gray-600 font-mono text-xs tracking-[0.2em] mb-2 selection:bg-neon-green selection:text-black">03. CAREER_LOG</h2>
                         <h3 className="text-3xl md:text-4xl font-display font-medium text-white selection:bg-neon-green selection:text-black">
                             Work <span className="text-gray-600">Experience</span>
                         </h3>

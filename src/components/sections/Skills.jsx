@@ -249,7 +249,6 @@ const Skills = () => {
                 <TextReveal>
                     <div className="mb-12 border-b border-white/5 pb-6 flex items-end justify-between">
                         <div>
-                            <h2 className="text-neon-blue font-mono text-[10px] tracking-widest mb-2">02. SYSTEM MAP</h2>
                             <h3 className="text-3xl md:text-4xl font-display font-bold text-white leading-none">
                                 Technical <span className="text-gray-500">Stack</span>
                             </h3>
@@ -263,7 +262,7 @@ const Skills = () => {
                     <CategoryGroup
                         title="Backend Core"
                         category="backend"
-                        color="#8b5cf6"
+                        color="#CCFF00"
                         skills={backendCore}
                         activeCategory={activeCategory}
                         setActiveCategory={setActiveCategory}
@@ -273,7 +272,7 @@ const Skills = () => {
                     <CategoryGroup
                         title="Architecture"
                         category="microservices"
-                        color="#3b82f6"
+                        color="#CCFF00"
                         skills={microservices}
                         activeCategory={activeCategory}
                         setActiveCategory={setActiveCategory}
@@ -283,7 +282,7 @@ const Skills = () => {
                     <CategoryGroup
                         title="Data & Streams"
                         category="data"
-                        color="#10b981"
+                        color="#CCFF00"
                         skills={data}
                         activeCategory={activeCategory}
                         setActiveCategory={setActiveCategory}
@@ -293,7 +292,7 @@ const Skills = () => {
                     <CategoryGroup
                         title="Security & Identity"
                         category="security"
-                        color="#f59e0b"
+                        color="#CCFF00"
                         skills={security}
                         activeCategory={activeCategory}
                         setActiveCategory={setActiveCategory}
@@ -303,7 +302,7 @@ const Skills = () => {
                     <CategoryGroup
                         title="Cloud & DevOps"
                         category="devops"
-                        color="#0ea5e9"
+                        color="#CCFF00"
                         skills={devops}
                         activeCategory={activeCategory}
                         setActiveCategory={setActiveCategory}
@@ -313,7 +312,7 @@ const Skills = () => {
                     <CategoryGroup
                         title="Interface Ecosystem"
                         category="frontend"
-                        color="#ec4899"
+                        color="#CCFF00"
                         skills={frontend}
                         activeCategory={activeCategory}
                         setActiveCategory={setActiveCategory}

@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-neon-blue: #9FE870;
-  --color-neon-purple: #7CFFB2;
-  --color-neon-cyan: #9FE870;
-  --color-dark-bg: #0a0a0a;
-  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-neon-green: #CCFF00;
+  --color-neon-blue: #CCFF00;
+  /* Aliased for safety */
+  --color-neon-purple: #CCFF00;
+  /* Aliased for safety */
+  --color-dark-bg: #000000;
+  --color-glass: rgba(204, 255, 0, 0.05);
 
   --font-display: "Orbitron", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -19,7 +21,7 @@
 
 @layer base {
   body {
-    @apply bg-dark-bg text-white font-body antialiased overflow-x-hidden selection:bg-neon-blue selection:text-black;
+    @apply bg-dark-bg text-white font-body antialiased overflow-x-hidden selection:bg-neon-green selection:text-black;
   }
 
   h1,
@@ -48,11 +50,11 @@
 
 @keyframes glow {
   from {
-    text-shadow: 0 0 10px var(--color-neon-blue), 0 0 20px var(--color-neon-blue);
+    text-shadow: 0 0 10px var(--color-neon-green), 0 0 20px rgba(204, 255, 0, 0.4);
   }
 
   to {
-    text-shadow: 0 0 20px var(--color-neon-purple), 0 0 30px var(--color-neon-purple);
+    text-shadow: 0 0 20px var(--color-neon-green), 0 0 30px rgba(204, 255, 0, 0.6);
   }
 }
 

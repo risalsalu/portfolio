@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
 import Section from '../ui/Section';
 import TextReveal from '../ui/TextReveal';
 import { cn } from '../../utils/cn';
-import { ArrowUpRight, Briefcase, Calendar, Layers, ShoppingCart, Activity } from 'lucide-react';
-import { SiDotnet, SiReact, SiPostgresql, SiKubernetes, SiRedis, SiApachekafka, SiTailwindcss, SiRedux } from 'react-icons/si';
-import { FaAws } from 'react-icons/fa';
+import { ArrowUpRight } from 'lucide-react';
 
 // --- DATA ---
 const PROJECTS = [
@@ -15,7 +13,7 @@ const PROJECTS = [
         category: 'Enterprise Architecture',
         year: '2025',
         link: 'https://github.com/risalsalu',
-        color: 'text-blue-400'
+        color: 'text-neon-green'
     },
     {
         id: 'servexa',
@@ -23,15 +21,15 @@ const PROJECTS = [
         category: 'SaaS Booking Platform',
         year: '2024',
         link: 'https://github.com/risalsalu',
-        color: 'text-emerald-400'
+        color: 'text-neon-green'
     },
     {
         id: 'portfolio',
         title: 'PORTFOLIO_V2',
         category: 'Interactive System',
-        year: '2026',
+        year: '2025',
         link: 'https://github.com/risalsalu',
-        color: 'text-amber-400'
+        color: 'text-neon-green'
     },
     {
         id: 'electrokart',
@@ -39,7 +37,7 @@ const PROJECTS = [
         category: 'E-commerce Engine',
         year: '2023',
         link: 'https://github.com/risalsalu',
-        color: 'text-pink-400'
+        color: 'text-neon-green'
     }
 ];
 
@@ -59,14 +57,7 @@ const ProjectStrip = ({ project, index, activeId, setActive }) => {
                 isDimmed ? "opacity-30 blur-[1px]" : "opacity-100"
             )}
         >
-            {isActive && (
-                <motion.div
-                    layoutId="project-highlight"
-                    className="absolute inset-0 bg-neon-green/[0.03] w-full"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                />
-            )}
-            <div className="relative flex items-center justify-between py-10 px-4 md:px-8 max-w-7xl mx-auto z-10">
+            <div className="relative flex items-center justify-between py-10 px-4 md:px-8 max-w-7xl mx-auto z-10 w-full">
                 {/* Left: Branding */}
                 <div className="flex items-baseline gap-6 md:gap-12 transition-transform duration-300 group-hover:translate-x-2">
                     <span className={cn(
@@ -83,7 +74,7 @@ const ProjectStrip = ({ project, index, activeId, setActive }) => {
                         )}>
                             {project.title}
                         </h3>
-                        {/* Subtitle - Only visible/colored on hover? No, keep visible but subtle */}
+                        {/* Subtitle */}
                         <div className={cn(
                             "flex items-center gap-3 mt-2 text-xs font-mono transition-colors duration-300",
                             isActive ? "text-white" : "text-gray-600"
@@ -118,29 +109,67 @@ const ProjectStrip = ({ project, index, activeId, setActive }) => {
 
 const Projects = () => {
     const [activeId, setActiveId] = useState(null);
+    const containerRef = useRef(null);
+
+    // --- MOUSE TRACKING ---
+    const mouseY = useMotionValue(0);
+    const opacity = useMotionValue(0);
+
+    // Smooth physics for the scanner band
+    const springY = useSpring(mouseY, { stiffness: 150, damping: 20 });
+    const springOpacity = useSpring(opacity, { stiffness: 200, damping: 25 });
+
+    const handleMouseMove = (e) => {
+        if (!containerRef.current) return;
+
+        const rect = containerRef.current.getBoundingClientRect();
+        const relativeY = e.clientY - rect.top;
+
+        // Center the band (height ~140px)
+        mouseY.set(relativeY - 70);
+        opacity.set(1);
+    };
+
+    const handleMouseLeave = () => {
+        opacity.set(0);
+        setActiveId(null);
+    };
 
     return (
         <Section
             id="projects"
             className="bg-dark-bg py-24 min-h-[50vh] flex flex-col justify-center"
-            onMouseLeave={() => setActiveId(null)}
         >
             <div className="w-full max-w-screen-2xl mx-auto px-4 md:px-12">
                 {/* Header */}
                 <div className="mb-16 border-b border-white/5 pb-4 flex items-end justify-between">
                     <div>
-                        <h2 className="text-gray-700 font-mono text-xs tracking-[0.2em] mb-2 selection:bg-neon-green selection:text-black">04. INDEX</h2>
                         <h3 className="text-2xl md:text-3xl font-display font-medium text-gray-400 selection:bg-neon-green selection:text-black">
                             Selected Works
                         </h3>
                     </div>
                     <span className="hidden md:block text-[10px] font-mono text-gray-800 text-right">
-                        // HOVER_TO_FOCUS
+                        // HOVER_TO_SCAN
                     </span>
                 </div>
 
-                {/* Projects List */}
-                <div className="flex flex-col">
+                {/* Projects List Container */}
+                <div
+                    ref={containerRef}
+                    onMouseMove={handleMouseMove}
+                    onMouseLeave={handleMouseLeave}
+                    className="relative flex flex-col group/list"
+                >
+                    {/* --- VERTICAL CURSOR-TRACKING HIGHLIGHT --- */}
+                    {/* Single floating band that follows the cursor Y position */}
+                    <motion.div
+                        className="absolute left-0 right-0 h-[140px] bg-neon-green/[0.03] pointer-events-none z-0 rounded-sm"
+                        style={{
+                            y: springY,
+                            opacity: springOpacity,
+                        }}
+                    />
+
                     {PROJECTS.map((project, index) => (
                         <ProjectStrip
                             key={project.id}

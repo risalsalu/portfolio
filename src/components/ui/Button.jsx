@@ -11,9 +11,9 @@ const Button = ({
     const baseStyles = 'inline-flex items-center justify-center font-bold tracking-wider uppercase transition-all duration-300 rounded cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed';
 
     const variants = {
-        primary: 'bg-transparent text-neon-blue border border-neon-blue hover:bg-neon-blue hover:text-black shadow-[0_0_10px_rgba(0,243,255,0.2)] hover:shadow-[0_0_20px_rgba(0,243,255,0.6)]',
-        secondary: 'bg-transparent text-neon-purple border border-neon-purple hover:bg-neon-purple hover:text-white shadow-[0_0_10px_rgba(188,19,254,0.2)] hover:shadow-[0_0_20px_rgba(188,19,254,0.6)]',
-        ghost: 'text-gray-300 hover:text-white hover:bg-white/10',
+        primary: 'bg-transparent text-neon-green border border-neon-green hover:bg-neon-green hover:text-black shadow-[0_0_10px_rgba(204,255,0,0.2)] hover:shadow-[0_0_20px_rgba(204,255,0,0.6)]',
+        secondary: 'bg-transparent text-white border border-white/20 hover:border-neon-green hover:text-neon-green shadow-none hover:shadow-[0_0_10px_rgba(204,255,0,0.2)]',
+        ghost: 'text-gray-300 hover:text-neon-green hover:bg-neon-green/5',
     };
 
     const sizes = {
