@@ -113,7 +113,7 @@ const Experience = () => {
                 'Deployed RESTful API endpoints via ASP.NET Core Clean Architecture.',
                 'Engineered role-based security layers (JWT/RBAC) for data protection.',
                 'Optimized high-load queries using Dapper & Entity Framework Core.',
-                'Integrated Agile/Scrum methodologies for accelerated delivery cycles.'
+                'Integrated Agile/Scrum methodologies for accelerated delivery cycle.'
             ],
             stack: ['ASP.NET Core', 'React', 'Redux', 'EF Core', 'Dapper'],
         },
