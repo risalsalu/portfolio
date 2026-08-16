@@ -62,6 +62,7 @@ const PROJECTS = [
         ],
         technologies: ['ASP.NET WebForms', '.NET Framework 4', 'Oracle Database', 'ADO.NET'],
         concepts: ['Enterprise application development', 'Financial transaction processing', 'Legacy application maintenance', 'Database-driven applications', 'Production debugging', 'Issue resolution'],
+        link: 'https://github.com/risalsalu',
         icon: Globe
     },
     {
@@ -80,6 +81,7 @@ const PROJECTS = [
         ],
         technologies: ['ASP.NET', 'Enterprise Applications', 'Financial Compliance'],
         concepts: ['Compliance workflows', 'Transaction monitoring', 'Secure transaction validation', 'Enterprise application maintenance', 'Financial software engineering'],
+        link: 'https://github.com/risalsalu',
         icon: ShieldCheck
     }
 ];
@@ -89,9 +91,12 @@ const ProjectCard = ({ project }) => {
     const isFeatured = project.featured;
 
     return (
-        <div
+        <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
             className={cn(
-                "group relative overflow-hidden rounded-xl bg-zinc-900/50 border border-white/5 p-6 md:p-8 transition-all duration-300",
+                "group relative block overflow-hidden rounded-xl bg-zinc-900/50 border border-white/5 p-6 md:p-8 transition-all duration-300 outline-none",
                 "hover:border-neon-green/20 hover:bg-zinc-900/70 hover:shadow-[0_0_20px_rgba(204,255,0,0.02)]",
                 isFeatured ? "col-span-1 md:col-span-2 border-neon-green/10 bg-zinc-900/60 shadow-[0_0_15px_rgba(204,255,0,0.01)]" : ""
             )}
@@ -108,16 +113,9 @@ const ProjectCard = ({ project }) => {
                 </span>
                 <div className="flex items-center gap-3">
                     <Icon className="w-5 h-5 text-gray-600 group-hover:text-neon-green transition-colors duration-300" />
-                    {project.link && (
-                        <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-500 hover:text-white transition-colors duration-300"
-                        >
-                            <ArrowUpRight className="w-4 h-4" />
-                        </a>
-                    )}
+                    <div className="text-gray-500 group-hover:text-white transition-colors duration-300">
+                        <ArrowUpRight className="w-4 h-4" />
+                    </div>
                 </div>
             </div>
 
@@ -190,7 +188,7 @@ const ProjectCard = ({ project }) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
     );
 };
 

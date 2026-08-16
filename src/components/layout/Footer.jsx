@@ -11,7 +11,7 @@ export default function Footer() {
     ];
 
     return (
-        <footer id="contact" className="relative overflow-hidden bg-black border-t border-white/5">
+        <footer className="relative overflow-hidden bg-black border-t border-white/5">
             {/* Background Glows */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-[-50%] left-[-10%] w-[500px] h-[500px] bg-neon-green/5 rounded-full blur-[100px]" />

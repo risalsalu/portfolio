@@ -75,7 +75,7 @@ const Contact = () => {
                     <ContactItem
                         icon={Linkedin}
                         label="Professional Network"
-                        value="Linkdein"
+                        value="LinkedIn"
                         href="https://www.linkedin.com/in/muhammed-rizal/"
                     />
 
