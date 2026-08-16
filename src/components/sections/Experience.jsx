@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Section from '../ui/Section';
 import TextReveal from '../ui/TextReveal';
 import { cn } from '../../utils/cn';
-import { Activity, ArrowRight } from 'lucide-react';
 
 const ExperienceItem = ({ job, index, activeId, setActive }) => {
     const isActive = activeId === index;
@@ -13,7 +12,7 @@ const ExperienceItem = ({ job, index, activeId, setActive }) => {
         <div
             className={cn(
                 "relative pl-8 md:pl-0 group transition-all duration-300",
-                isDimmed ? "opacity-30 blur-[1px]" : "opacity-100"
+                isDimmed ? "opacity-30 blur-[0.5px]" : "opacity-100"
             )}
             onMouseEnter={() => setActive(index)}
         >
@@ -28,7 +27,6 @@ const ExperienceItem = ({ job, index, activeId, setActive }) => {
 
                 {/* 1. Timeline Rail (Desktop) */}
                 <div className="hidden md:block absolute left-[180px] top-0 bottom-0 w-px bg-white/5 md:translate-x-[24px]">
-                    {/* Active Indicator Line (fills height on hover?) - dynamic height is hard, keep simple accent */}
                     <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-neon-green/0 via-neon-green/20 to-neon-green/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
 
@@ -102,21 +100,41 @@ const Experience = () => {
 
     const jobs = [
         {
-            role: 'React–.NET Developer Intern',
-            company: 'Bridgeon Solutions LLP',
-            period: 'MAY 2025 – PRESENT',
+            role: 'Software Developer',
+            company: 'Distinct Infotech Solutions',
+            period: 'JAN 2026 – PRESENT',
             current: true,
             location: 'Onsite',
-            description: 'Initializing full-stack development protocols. Executing core feature implementation for scalable web applications using React-Redux and ASP.NET pipelines.',
+            description: 'Enterprise software development focused on remittance, foreign exchange, financial transaction processing, and compliance-oriented systems.',
             responsibilities: [
-                'Architected responsive frontend modules using React 19 & Redux Toolkit.',
-                'Deployed RESTful API endpoints via ASP.NET Core Clean Architecture.',
-                'Engineered role-based security layers (JWT/RBAC) for data protection.',
-                'Optimized high-load queries using Dapper & Entity Framework Core.',
-                'Integrated Agile/Scrum methodologies for accelerated delivery cycle.'
+                'Enterprise remittance and foreign exchange applications',
+                'Casmex remittance and forex management software',
+                'Anti-money laundering and compliance workflows',
+                'Production debugging and legacy application enhancement',
+                'Backend operations and database management',
+                'Secure and optimized financial software maintenance'
             ],
-            stack: ['ASP.NET Core', 'React', 'Redux', 'EF Core', 'Dapper'],
+            stack: ['ASP.NET WebForms', '.NET Framework 4', 'Oracle Database', 'Oracle SQL Developer', 'ADO.NET', 'AJAX', 'ASP.NET AJAX'],
         },
+        {
+            role: 'React–.NET Developer Intern',
+            company: 'Bridgeon Solutions LLP',
+            period: 'MAY 2025 – DEC 2025',
+            current: false,
+            location: 'Onsite',
+            description: 'Full-stack web application development across React frontend engineering and ASP.NET Core backend services, following Clean Architecture and Agile development practices.',
+            responsibilities: [
+                'Responsive frontend development',
+                'RESTful API development',
+                'Clean Architecture',
+                'JWT authentication',
+                'Role-based authorization',
+                'Database access optimization',
+                'Agile Scrum collaboration',
+                'Git/GitHub development workflow'
+            ],
+            stack: ['React.js', 'Redux Toolkit', 'Tailwind CSS', 'ASP.NET Core Web API', 'Clean Architecture', 'JWT', 'Entity Framework Core', 'Dapper', 'Git', 'GitHub'],
+        }
     ];
 
     return (
