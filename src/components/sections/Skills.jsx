@@ -291,6 +291,11 @@ const Skills = () => {
         return `radial-gradient(600px circle at ${localX}px ${localY}px, rgba(20, 255, 100, 0.04), transparent 40%)`;
     });
 
+    // Partition categories for the two independent columns on desktop
+    const col1Ids = ["backend", "database", "messaging", "ai-providers", "architecture"];
+    const leftCategories = skillCategories.filter(c => col1Ids.includes(c.id));
+    const rightCategories = skillCategories.filter(c => !col1Ids.includes(c.id));
+
     return (
         <Section
             id="skills"
@@ -320,7 +325,42 @@ const Skills = () => {
                     </div>
                 </TextReveal>
 
-                <div className="grid md:grid-cols-2 gap-x-8 gap-y-10">
+                {/* Desktop Independent 2-Column Layout (>= md) */}
+                <div className="hidden md:grid grid-cols-2 gap-x-12 items-start">
+                    <div className="flex flex-col gap-y-12">
+                        {leftCategories.map((category) => (
+                            <CategoryGroup
+                                key={category.id}
+                                title={category.title}
+                                category={category.id}
+                                skills={category.skills}
+                                color="#CCFF00"
+                                activeCategory={activeCategory}
+                                setActiveCategory={setActiveCategory}
+                                mouseX={mouseX}
+                                mouseY={mouseY}
+                            />
+                        ))}
+                    </div>
+                    <div className="flex flex-col gap-y-12">
+                        {rightCategories.map((category) => (
+                            <CategoryGroup
+                                key={category.id}
+                                title={category.title}
+                                category={category.id}
+                                skills={category.skills}
+                                color="#CCFF00"
+                                activeCategory={activeCategory}
+                                setActiveCategory={setActiveCategory}
+                                mouseX={mouseX}
+                                mouseY={mouseY}
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                {/* Mobile Single Column Flow (< md) */}
+                <div className="flex flex-col gap-y-12 md:hidden">
                     {skillCategories.map((category) => (
                         <CategoryGroup
                             key={category.id}
