@@ -3,11 +3,70 @@ import { motion, useMotionValue, useSpring, useTransform, useAnimationFrame } fr
 import Section from '../ui/Section';
 import TextReveal from '../ui/TextReveal';
 import { cn } from '../../utils/cn';
-import { SiDotnet, SiRedis, SiDocker, SiGithubactions, SiPostgresql, SiMongodb, SiApachekafka, SiKubernetes, SiKeycloak, SiJavascript, SiTypescript, SiTailwindcss, SiRedux } from 'react-icons/si';
+import { skillCategories } from '../../config/skills';
+import { 
+    SiDotnet, SiRedis, SiDocker, SiGithubactions, SiPostgresql, 
+    SiMongodb, SiApachekafka, SiKubernetes, SiKeycloak, SiJavascript, 
+    SiTypescript, SiTailwindcss, SiRedux, SiPython, SiFastapi, 
+    SiGit, SiGithub, SiJsonwebtokens, SiClaude, SiGooglegemini, 
+    SiOpenai, SiOpenid, SiOllama, SiReactrouter, SiVite 
+} from 'react-icons/si';
 import { TbBrandCSharp } from 'react-icons/tb';
 import { DiMsqlServer } from 'react-icons/di';
 import { FaReact, FaAws, FaGoogle, FaCloud, FaMicrosoft, FaServer, FaGem } from 'react-icons/fa';
-import { Layers, Globe, ShieldCheck, Database, Radio, Workflow, Cpu, Container, Zap, Box, Server } from 'lucide-react';
+import { Layers, Globe, ShieldCheck, Database, Radio, Workflow, Cpu, Container, Zap, Box, Server, Lock, Key, Network } from 'lucide-react';
+
+// --- ICON MAP ---
+const ICON_MAP = {
+    SiDotnet,
+    SiRedis,
+    SiDocker,
+    SiGithubactions,
+    SiPostgresql,
+    SiMongodb,
+    SiApachekafka,
+    SiKubernetes,
+    SiKeycloak,
+    SiJavascript,
+    SiTypescript,
+    SiTailwindcss,
+    SiRedux,
+    SiPython,
+    SiFastapi,
+    SiGit,
+    SiGithub,
+    SiJsonwebtokens,
+    SiClaude,
+    SiGooglegemini,
+    SiOpenai,
+    SiOpenid,
+    SiOllama,
+    SiReactrouter,
+    SiVite,
+    TbBrandCSharp,
+    DiMsqlServer,
+    FaReact,
+    FaAws,
+    FaGoogle,
+    FaCloud,
+    FaMicrosoft,
+    FaServer,
+    FaGem,
+    Layers,
+    Globe,
+    ShieldCheck,
+    Database,
+    Radio,
+    Workflow,
+    Cpu,
+    Container,
+    Zap,
+    Box,
+    Server,
+    Lock,
+    Key,
+    Network
+};
 
 // --- CONFIG ---
 const HOVER_RADIUS = 200; // Pixels
@@ -15,9 +74,8 @@ const BASE_SCALE = 1.0;
 const MAX_SCALE = 1.15;
 const MAX_SHIFT = 10; // Pixels
 
-const TechCard = ({ name, icon: Icon, color, category, activeCategory, setActiveCategory, mouseX, mouseY }) => {
+const TechCard = ({ name, description, icon: Icon, color, category, activeCategory, setActiveCategory, mouseX, mouseY }) => {
     const ref = useRef(null);
-    // Use state to store rect, but check it's performant
     const [rect, setRect] = useState(null);
 
     // Motion Springs for smooth physics
@@ -91,7 +149,7 @@ const TechCard = ({ name, icon: Icon, color, category, activeCategory, setActive
             onMouseEnter={() => setActiveCategory(category)}
             onMouseLeave={() => setActiveCategory(null)}
             className={cn(
-                "group relative overflow-hidden rounded-md bg-zinc-900 border border-white/5 flex flex-col items-center justify-center p-3 transition-colors duration-300 cursor-none h-[90px] will-change-transform",
+                "group relative overflow-hidden rounded-md bg-zinc-900 border border-white/5 flex flex-col items-center justify-center p-2.5 transition-colors duration-300 cursor-none h-[90px] will-change-transform",
                 isSystemActive ? "border-white/20 shadow-lg" : "hover:border-white/10 hover:bg-white/[0.02]",
                 isOtherActive ? "opacity-30 grayscale blur-[0.5px]" : "opacity-100"
             )}
@@ -103,50 +161,93 @@ const TechCard = ({ name, icon: Icon, color, category, activeCategory, setActive
             />
 
             {/* Icon */}
-            <div className="relative z-10 mb-2">
-                <Icon className="text-3xl md:text-4xl transition-colors duration-300" style={{ color: isSystemActive || isOtherActive === false ? (isSystemActive ? color : '#e5e7eb') : '#525252' }} />
+            <div className="relative z-10 mb-1 flex items-center justify-center">
+                <Icon className="text-2xl md:text-3xl transition-colors duration-300" style={{ color: isSystemActive || isOtherActive === false ? (isSystemActive ? color : '#e5e7eb') : '#525252' }} />
             </div>
 
             {/* Name */}
             <h3 className={cn(
-                "relative z-10 text-[10px] uppercase tracking-wider font-semibold transition-colors duration-300 text-center leading-none",
-                isSystemActive ? "text-white" : "text-gray-500 group-hover:text-gray-300"
+                "relative z-10 text-[9px] uppercase tracking-wider font-semibold transition-colors duration-300 text-center leading-tight mb-0.5",
+                isSystemActive ? "text-white" : "text-gray-400 group-hover:text-gray-200"
             )}>
                 {name}
             </h3>
+
+            {/* Short Description */}
+            <span className={cn(
+                "relative z-10 text-[6.5px] font-mono tracking-wider font-medium text-center leading-none transition-colors duration-300",
+                isSystemActive ? "text-gray-400" : "text-gray-600 group-hover:text-gray-500"
+            )}>
+                {description}
+            </span>
         </motion.div>
     );
 };
 
-const CategoryGroup = ({ title, category, skills, color, activeCategory, setActiveCategory, mouseX, mouseY }) => (
-    <div className="flex flex-col h-full">
-        <h4 className={cn(
-            "text-[10px] font-mono uppercase tracking-widest mb-3 flex items-center gap-2",
-            activeCategory === category ? "text-white" : "text-gray-600"
-        )}>
-            <span className={cn("w-1.5 h-1.5 rounded-full transition-colors", activeCategory === category ? "animate-pulse" : "bg-gray-800")} style={{ backgroundColor: activeCategory === category ? color : undefined }}></span>
-            {title}
-        </h4>
-        <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
-            {skills.map((skill, idx) => (
-                <TechCard
-                    key={idx}
-                    {...skill}
-                    color={color}
-                    category={category}
-                    activeCategory={activeCategory}
-                    setActiveCategory={setActiveCategory}
-                    mouseX={mouseX}
-                    mouseY={mouseY}
-                />
-            ))}
+const CategoryGroup = ({ title, category, skills, color, activeCategory, setActiveCategory, mouseX, mouseY }) => {
+    const coreSkills = skills.filter(s => s.level === 'core');
+    const secondarySkills = skills.filter(s => s.level === 'secondary');
+
+    return (
+        <div className="flex flex-col h-full">
+            <h4 className={cn(
+                "text-[10px] font-mono uppercase tracking-widest mb-3 flex items-center gap-2",
+                activeCategory === category ? "text-white" : "text-gray-600"
+            )}>
+                <span className={cn("w-1.5 h-1.5 rounded-full transition-colors", activeCategory === category ? "animate-pulse" : "bg-gray-800")} style={{ backgroundColor: activeCategory === category ? color : undefined }}></span>
+                {title}
+            </h4>
+
+            {/* Core Tech Cards Grid */}
+            {coreSkills.length > 0 && (
+                <div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                    {coreSkills.map((skill, idx) => {
+                        const IconComponent = ICON_MAP[skill.icon] || Cpu;
+                        return (
+                            <TechCard
+                                key={idx}
+                                name={skill.name}
+                                description={skill.description}
+                                icon={IconComponent}
+                                color={color}
+                                category={category}
+                                activeCategory={activeCategory}
+                                setActiveCategory={setActiveCategory}
+                                mouseX={mouseX}
+                                mouseY={mouseY}
+                            />
+                        );
+                    })}
+                </div>
+            )}
+
+            {/* Secondary Skills Compact Badges */}
+            {secondarySkills.length > 0 && (
+                <div className={cn(
+                    "flex flex-wrap gap-1.5 mt-3 pt-2 border-t border-white/5",
+                    activeCategory === category ? "border-white/10" : "border-white/5"
+                )}>
+                    {secondarySkills.map((skill, idx) => (
+                        <span
+                            key={idx}
+                            className={cn(
+                                "px-2 py-0.5 text-[9px] font-mono text-gray-500 hover:text-white bg-zinc-900/60 border border-white/5 rounded transition-all duration-300 select-none cursor-default",
+                                activeCategory === category ? "text-gray-400 border-white/10" : "text-gray-500"
+                            )}
+                        >
+                            {skill.name}
+                        </span>
+                    ))}
+                </div>
+            )}
         </div>
-    </div>
-);
+    );
+};
 
 const Skills = () => {
     const [activeCategory, setActiveCategory] = useState(null);
     const containerRef = useRef(null);
+    const rectRef = useRef(null);
 
     // Global Cursor State
     const mouseX = useMotionValue(-1000);
@@ -156,77 +257,39 @@ const Skills = () => {
     const bgX = useSpring(mouseX, { stiffness: 50, damping: 20 });
     const bgY = useSpring(mouseY, { stiffness: 50, damping: 20 });
 
-    // Dynamic Gradient Background
-    const bgGradient = useTransform([bgX, bgY], ([x, y]) => {
-        if (!containerRef.current) return 'none';
-        const rect = containerRef.current.getBoundingClientRect();
-        // Transform client coords to local for background
-        const localX = x - rect.left;
-        const localY = y - rect.top;
-        return `radial-gradient(600px circle at ${localX}px ${localY}px, rgba(20, 255, 100, 0.04), transparent 40%)`;
-    });
+    // Cache the bounding rectangle measurements to avoid layout thrashing on spring updates
+    const updateRect = () => {
+        if (containerRef.current) {
+            rectRef.current = containerRef.current.getBoundingClientRect();
+        }
+    };
 
     const handleMouseMove = (e) => {
+        if (!rectRef.current) {
+            updateRect();
+        }
         mouseX.set(e.clientX);
         mouseY.set(e.clientY);
+    };
+
+    const handleMouseEnter = () => {
+        updateRect();
     };
 
     const handleMouseLeave = () => {
         mouseX.set(-1000);
         mouseY.set(-1000);
+        rectRef.current = null;
     };
 
-    // Data Config
-    const backendCore = [
-        { name: "ASP.NET Core", icon: SiDotnet },
-        { name: "C# / .NET 8", icon: TbBrandCSharp },
-        { name: "Clean Arch", icon: Layers },
-        { name: "REST APIs", icon: Globe },
-    ];
-
-    const microservices = [
-        { name: "Microservices", icon: Workflow },
-        { name: "DDD", icon: Box },
-        { name: "Dist. Systems", icon: Server },
-    ];
-
-    const data = [
-        { name: "SQL Server", icon: DiMsqlServer },
-        { name: "PostgreSQL", icon: SiPostgresql },
-        { name: "Redis", icon: SiRedis },
-        { name: "Kafka", icon: SiApachekafka },
-        { name: "SignalR", icon: Radio },
-        { name: "NoSQL", icon: SiMongodb },
-        { name: "EF Core", icon: Database },
-        { name: "Dapper", icon: Cpu },
-    ];
-
-    const security = [
-        { name: "OAuth 2.0", icon: ShieldCheck },
-        { name: "Keycloak", icon: SiKeycloak },
-        { name: "JWT Auth", icon: ShieldCheck },
-    ];
-
-    const devops = [
-        { name: "Azure", icon: FaMicrosoft },
-        { name: "AWS", icon: FaAws },
-        { name: "GCP", icon: FaGoogle },
-        { name: "Docker", icon: SiDocker },
-        { name: "Kubernetes", icon: SiKubernetes },
-        { name: "CI/CD", icon: SiGithubactions },
-        { name: "Vercel", icon: FaServer },
-        { name: "Netlify", icon: FaGem },
-        { name: "Render", icon: FaCloud },
-    ];
-
-    const frontend = [
-        { name: "React", icon: FaReact },
-        { name: "Redux", icon: SiRedux },
-        { name: "Zustand", icon: Zap },
-        { name: "Tailwind", icon: SiTailwindcss },
-        { name: "TypeScript", icon: SiTypescript },
-        { name: "JavaScript", icon: SiJavascript },
-    ];
+    // Calculate background radial gradient coordinates from cached rect
+    const bgGradient = useTransform([bgX, bgY], ([x, y]) => {
+        const rect = rectRef.current;
+        if (!rect || x === -1000) return 'none';
+        const localX = x - rect.left;
+        const localY = y - rect.top;
+        return `radial-gradient(600px circle at ${localX}px ${localY}px, rgba(20, 255, 100, 0.04), transparent 40%)`;
+    });
 
     return (
         <Section
@@ -234,6 +297,7 @@ const Skills = () => {
             className="bg-dark-bg min-h-screen flex items-center relative overflow-hidden"
             ref={containerRef}
             onMouseMove={handleMouseMove}
+            onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
             {/* Base Background Grid */}
@@ -257,67 +321,19 @@ const Skills = () => {
                 </TextReveal>
 
                 <div className="grid md:grid-cols-2 gap-x-8 gap-y-10">
-
-                    <CategoryGroup
-                        title="Backend Core"
-                        category="backend"
-                        color="#CCFF00"
-                        skills={backendCore}
-                        activeCategory={activeCategory}
-                        setActiveCategory={setActiveCategory}
-                        mouseX={mouseX} mouseY={mouseY}
-                    />
-
-                    <CategoryGroup
-                        title="Architecture"
-                        category="microservices"
-                        color="#CCFF00"
-                        skills={microservices}
-                        activeCategory={activeCategory}
-                        setActiveCategory={setActiveCategory}
-                        mouseX={mouseX} mouseY={mouseY}
-                    />
-
-                    <CategoryGroup
-                        title="Data & Streams"
-                        category="data"
-                        color="#CCFF00"
-                        skills={data}
-                        activeCategory={activeCategory}
-                        setActiveCategory={setActiveCategory}
-                        mouseX={mouseX} mouseY={mouseY}
-                    />
-
-                    <CategoryGroup
-                        title="Security & Identity"
-                        category="security"
-                        color="#CCFF00"
-                        skills={security}
-                        activeCategory={activeCategory}
-                        setActiveCategory={setActiveCategory}
-                        mouseX={mouseX} mouseY={mouseY}
-                    />
-
-                    <CategoryGroup
-                        title="Cloud & DevOps"
-                        category="devops"
-                        color="#CCFF00"
-                        skills={devops}
-                        activeCategory={activeCategory}
-                        setActiveCategory={setActiveCategory}
-                        mouseX={mouseX} mouseY={mouseY}
-                    />
-
-                    <CategoryGroup
-                        title="Interface Ecosystem"
-                        category="frontend"
-                        color="#CCFF00"
-                        skills={frontend}
-                        activeCategory={activeCategory}
-                        setActiveCategory={setActiveCategory}
-                        mouseX={mouseX} mouseY={mouseY}
-                    />
-
+                    {skillCategories.map((category) => (
+                        <CategoryGroup
+                            key={category.id}
+                            title={category.title}
+                            category={category.id}
+                            skills={category.skills}
+                            color="#CCFF00"
+                            activeCategory={activeCategory}
+                            setActiveCategory={setActiveCategory}
+                            mouseX={mouseX}
+                            mouseY={mouseY}
+                        />
+                    ))}
                 </div>
             </div>
         </Section>
